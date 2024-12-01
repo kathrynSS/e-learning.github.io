@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Learning Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Top Banner -->
-    <div class="top-banner">
-         Learning to code? Check out our <a href="#">brand new Bootcamp</a> for beginners!
-    </div>
-
     <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            <img src="logo.png" alt="Logo">
-            <span>exercism</span>
+    <nav class="main-nav">
+        <div class="nav-left">
+            <div class="logo">
+                <svg class="exercism-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L4.5 7.5V16.5L12 21L19.5 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 8L8 10.5V15.5L12 18L16 15.5V10.5L12 8Z" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">exercism</span>
+            </div>
+            <div class="nav-links">
+                <a href="learn.html" class="nav-item">Learn</a>
+                <a href="discover.html" class="nav-item">Discover</a>
+                <a href="exercises.html" class="nav-item">Exercises</a>
+                <a href="share.html" class="nav-item">Share</a>
+            </div>
         </div>
-        <div class="nav-links">
-            <a href="#">Learn</a>
-            <a href="#">Discover</a>
-            <a href="#">Contribute</a>
-            <a href="#">More</a>
-        </div>
-        <div class="auth-buttons">
-            <button class="signup-btn">Sign up</button>
-            <button class="login-btn">Log in</button>
+        <div class="nav-right">
+            <button class="btn-signup">Sign up</button>
+            <button class="btn-login">Log in</button>
         </div>
     </nav>
 
@@ -34,14 +35,9 @@
     <main>
         <div class="content-wrapper">
             <div class="left-content">
-                <h1>Get <span class="highlight">really</span> good at programming.</h1>
-                <p>Develop fluency in 74 programming languages with our unique blend of learning, practice and mentoring. Exercism is fun, effective and <span class="underline">100% free, forever.</span></p>
+                <h1>Let's start learning <span class="highlight">sorting</span> algorithms.</h1>
+                <p>This is a simple sorting algorithm learning course. I hope you can learn the basic ideas of the algorithm!</p>
                 
-                <div class="cta-buttons">
-                    <button class="primary-btn">Sign up for free</button>
-                    <button class="secondary-btn">Explore languages</button>
-                </div>
-
                 <div class="info-box">
                     <div class="info-content">
                         <img src="logo-small.png" alt="Logo" class="small-logo">
@@ -52,13 +48,34 @@
             </div>
 
             <div class="right-content">
-                <div class="illustration">
-                    <!-- Add your illustration here -->
+                <div class="sorting-visualization">
+                    <div class="bar-container">
+                        <div class="bar" style="height: 60%"></div>
+                        <div class="bar" style="height: 30%"></div>
+                        <div class="bar" style="height: 80%"></div>
+                        <div class="bar" style="height: 100%"></div>
+                        <div class="bar" style="height: 20%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                    </div>
                 </div>
-                <div class="language-icons">
-                    <!-- Programming language icons -->
+                <div class="homework-card">
+                    <h2>Your homework that is due soon</h2>
+                    <div class="homework-list">
+                        <div class="homework-item">
+                            <span class="due-date">Due Tomorrow</span>
+                            <h3>Bubble Sort Implementation</h3>
+                            <p>Complete the bubble sort algorithm exercise</p>
+                            <a href="exercises.html" class="view-all">View all assignments →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="bottom-icon">
+            <svg class="hex-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L22 8.5V15.5L12 22L2 15.5V8.5L12 2Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 6L18 9.5V13.5L12 17L6 13.5V9.5L12 6Z" fill="currentColor"/>
+            </svg>
         </div>
     </main>
 </body>

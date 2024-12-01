@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <!-- Background -->
+    <path d="M0 0 L800 0 L800 600 L0 600 Z" fill="#E3F6F9"/>
+    
+    <!-- Code Window -->
+    <rect x="50" y="50" width="200" height="150" rx="10" fill="#FFFFFF" stroke="#6B5BD6" stroke-width="2"/>
+    <line x1="50" y1="90" x2="250" y2="90" stroke="#6B5BD6" stroke-width="2"/>
+    <rect x="70" y="110" width="160" height="10" rx="2" fill="#E0E0E0"/>
+    <rect x="70" y="130" width="120" height="10" rx="2" fill="#E0E0E0"/>
+    <rect x="70" y="150" width="140" height="10" rx="2" fill="#E0E0E0"/>
+    
+    <!-- Light Bulb -->
+    <circle cx="400" cy="100" r="30" fill="#6B5BD6"/>
+    <path d="M385 100 L415 100 M400 85 L400 115" stroke="#FFFFFF" stroke-width="4"/>
+    
+    <!-- Gears -->
+    <circle cx="500" cy="150" r="20" fill="#FFFFFF" stroke="#6B5BD6" stroke-width="2"/>
+    <circle cx="550" cy="130" r="15" fill="#FFFFFF" stroke="#6B5BD6" stroke-width="2"/>
+    <circle cx="580" cy="160" r="25" fill="#FFFFFF" stroke="#6B5BD6" stroke-width="2"/>
+    
+    <!-- Students -->
+    <!-- Student 1 -->
+    <rect x="200" y="300" width="150" height="120" rx="10" fill="#6B5BD6"/>
+    <circle cx="275" cy="260" r="40" fill="#FFD6B3"/>
+    <rect x="235" y="320" width="80" height="60" fill="#FFFFFF"/>
+    
+    <!-- Student 2 -->
+    <rect x="400" y="300" width="150" height="120" rx="10" fill="#4CAF50"/>
+    <circle cx="475" cy="260" r="40" fill="#C5E1A5"/>
+    <rect x="435" y="320" width="80" height="60" fill="#FFFFFF"/>
+    
+    <!-- Student 3 -->
+    <rect x="600" y="300" width="150" height="120" rx="10" fill="#FFC107"/>
+    <circle cx="675" cy="260" r="40" fill="#8D6E63"/>
+    <rect x="635" y="320" width="80" height="60" fill="#FFFFFF"/>
+</svg> 
