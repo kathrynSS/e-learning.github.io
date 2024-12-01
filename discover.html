@@ -8,9 +8,45 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation (same as index.html) -->
+    <!-- Navigation -->
     <nav class="main-nav">
-        <!-- Copy the nav content from index.html -->
+        <div class="nav-left">
+            <div class="logo">
+                <svg class="exercism-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L4.5 7.5V16.5L12 21L19.5 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 8L8 10.5V15.5L12 18L16 15.5V10.5L12 8Z" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">exercism</span>
+            </div>
+            <div class="nav-links">
+                <div class="nav-item-wrapper">
+                    <a href="learn.html" class="nav-item">Learn</a>
+                    <nav class="sub-nav">
+                        <div class="sub-nav-wrapper">
+                            <a href="learn.html" class="sub-nav-item active">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Learning Path</span>
+                                    <span class="sub-nav-item-description">Follow a structured path to mastery</span>
+                                </div>
+                            </a>
+                            <a href="visualization.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Visualization</span>
+                                    <span class="sub-nav-item-description">See algorithms in action</span>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <a href="discover.html" class="nav-item">Discover</a>
+                <a href="contribute.html" class="nav-item">Contribute</a>
+                <a href="#" class="nav-item">More</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="btn-signup">Sign up</button>
+            <button class="btn-login">Log in</button>
+        </div>
     </nav>
 
     <main>
