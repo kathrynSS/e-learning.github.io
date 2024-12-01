@@ -8,30 +8,133 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation (same as index.html) -->
+    <!-- Navigation -->
     <nav class="main-nav">
-        <!-- Copy the nav content from index.html -->
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <svg class="exercism-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L4.5 7.5V16.5L12 21L19.5 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 8L8 10.5V15.5L12 18L16 15.5V10.5L12 8Z" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">Algorithm Learning</span>
+            </a>
+            <div class="nav-links">
+                <div class="nav-item-wrapper">
+                    <a href="learn.html" class="nav-item">Learn</a>
+                    <nav class="sub-nav">
+                        <div class="sub-nav-wrapper">
+                            <a href="learn.html" class="sub-nav-item active">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Learning Path</span>
+                                    <span class="sub-nav-item-description">Follow a structured path to mastery</span>
+                                </div>
+                            </a>
+                            <a href="visualization.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Visualization</span>
+                                    <span class="sub-nav-item-description">See algorithms in action</span>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <a href="discover.html" class="nav-item">Discover</a>
+                <a href="contribute.html" class="nav-item">Contribute</a>
+                <a href="#" class="nav-item">More</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="btn-signup">Sign up</button>
+            <button class="btn-login">Log in</button>
+        </div>
     </nav>
 
     <main>
         <div class="content-wrapper">
             <div class="learn-content">
-                <h1>Learning Path</h1>
+                <div class="learn-header">
+                    <img src="./pic/3.png" alt="Learning Path" class="path-icon">
+                    <div class="header-text">
+                        <h1>Your journey through Sorting Algorithms</h1>
+                        <p>Learn and master concepts to achieve fluency in sorting algorithms.</p>
+                    </div>
+                </div>
                 <div class="algorithm-list">
-                    <div class="algorithm-card">
-                        <h2>Bubble Sort</h2>
-                        <p>Start with the basics of sorting algorithms</p>
-                        <a href="#" class="start-btn">Start Learning</a>
+                    <div class="connection-lines"></div>
+                    <!-- Basic Sorting Section -->
+                    <div class="algorithm-card basics">
+                        <div class="card-header">
+                            <div class="card-icon">Ba</div>
+                            <h2 class="card-title">Basic Sorting Algorithms</h2>
+                        </div>
+                        <div class="card-details">
+                            <p class="card-description">Start with simple sequential comparison sorts. These algorithms form the foundation of sorting techniques.</p>
+                            <a href="#" class="explore-link">Explore concept</a>
+                        </div>
+                        <div class="arc left-arc"></div>
+                        <div class="arc right-arc"></div>
                     </div>
-                    <div class="algorithm-card">
-                        <h2>Selection Sort</h2>
-                        <p>Learn how to select and sort elements</p>
-                        <a href="#" class="start-btn">Start Learning</a>
+                    
+                    <!-- First Level Branches -->
+                    <div class="algorithm-branches level-1">
+                        <div class="algorithm-card bubble">
+                            <div class="card-header">
+                                <div class="card-icon">Bu</div>
+                                <h2 class="card-title">Bubble Sort</h2>
+                            </div>
+                            <div class="card-details">
+                                <p class="card-description">Compare and swap adjacent elements repeatedly until the array is sorted. Simple but inefficient for large datasets.</p>
+                                <a href="#" class="explore-link">Explore concept</a>
+                            </div>
+                        </div>
+                        <div class="algorithm-card insertion">
+                            <div class="card-header">
+                                <div class="card-icon">In</div>
+                                <h2 class="card-title">Insertion Sort</h2>
+                            </div>
+                            <div class="card-details">
+                                <p class="card-description">Build sorted array one item at a time. Efficient for small datasets and partially sorted arrays.</p>
+                                <a href="#" class="explore-link">Explore concept</a>
+                            </div>
+                        </div>
+                        <div class="algorithm-card selection">
+                            <div class="card-header">
+                                <div class="card-icon">Se</div>
+                                <h2 class="card-title">Selection Sort</h2>
+                            </div>
+                            <div class="card-details">
+                                <p class="card-description">Find minimum element in unsorted array. Simple but inefficient for large datasets.</p>
+                                <a href="#" class="explore-link">Explore concept</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="algorithm-card">
-                        <h2>Insertion Sort</h2>
-                        <p>Master the insertion sorting technique</p>
-                        <a href="#" class="start-btn">Start Learning</a>
+
+                    <!-- Advanced Sorting Section -->
+                    <div class="algorithm-branches level-2">
+                        <div class="algorithm-card quick">
+                            <div class="card-header">
+                                <div class="card-icon">Qu</div>
+                                <h2 class="card-title">Quick Sort</h2>
+                            </div>
+                            <div class="card-details">
+                                <p class="card-description">Efficient divide-and-conquer sorting. Efficient for large datasets and partially sorted arrays.</p>
+                                <a href="#" class="explore-link">Explore concept</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third Level -->
+                    <div class="algorithm-branches level-3">
+                        <div class="algorithm-card other">
+                            <div class="card-header">
+                                <div class="card-icon">Ot</div>
+                                <h2 class="card-title">Other Advanced Sorting Algorithms</h2>
+                            </div>
+                            <div class="card-details">
+                                <p class="card-description">Advanced sorting strategies including Heap Sort, Merge Sort, and other efficient algorithms.</p>
+                                <a href="#" class="explore-link">Explore concept</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
