@@ -3,21 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover - Sorting Algorithms</title>
+    <title>Discover Resources - Algorithm Learning</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: #F8F9FB;
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            background: #F8F9FB;
+        }
+
+        .content-header {
+            padding: 20px 0;
+        }
+
+        .content-header h1 {
+            font-size: 2.5rem;
+            color: #2D2D3A;
+            margin-bottom: 8px;
+        }
+
+        .content-header p {
+            font-size: 1.1rem;
+            color: #57576B;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 16px 0;
+        }
+
+        .document-card {
+            background: white;
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 1px 3px rgba(37, 99, 235, 0.1), 
+                        0 1px 2px rgba(37, 99, 235, 0.06),
+                        0 0 0 1px rgba(37, 99, 235, 0.05);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(37, 99, 235, 0.08);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            min-width: 300px;
+        }
+
+        .document-card::after {
+            content: '▶ Click to Watch';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.2s ease;
+        }
+
+        .document-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12),
+                        0 4px 8px rgba(37, 99, 235, 0.1),
+                        0 2px 4px rgba(37, 99, 235, 0.08);
+        }
+
+        .document-card:hover::after {
+            opacity: 1;
+        }
+
+        .document-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.1);
+        }
+
+        .document-info h3 {
+            font-size: 1rem;
+            color: #2D2D3A;
+            margin-bottom: 6px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .document-meta {
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .document-type {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .document-type.video {
+            color: #3498db;
+            background: rgba(52, 152, 219, 0.08);
+        }
+
+        .document-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .document-meta span::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: currentColor;
+            opacity: 0.5;
+        }
+
+        .document-description {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 6px 0;
+        }
+
+        .thumbnail-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .document-card:hover .thumbnail {
+            transform: scale(1.05);
+        }
+
+        /* Add folder card styles */
+        .document-type.folder {
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.08);
+        }
+
+        .document-card.folder::after {
+            content: '📁 Open Folder';
+        }
+
+        .nav-item-wrapper {
+            position: relative;
+        }
+
+        .sub-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            min-width: 240px;
+            z-index: 100;
+        }
+
+        .nav-item-wrapper:hover .sub-nav {
+            display: block;
+        }
+
+        .sub-nav-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .sub-nav-item {
+            text-decoration: none;
+            color: #57576B;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .sub-nav-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .sub-nav-item.active {
+            background-color: #f0f0f0;
+        }
+
+        .sub-nav-item-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sub-nav-item-title {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .sub-nav-item-description {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Add specific icon styles for Discover dropdown items */
+        .sub-nav-item[href="discover.html"]::before {
+            background-image: url('pic/10.png');  /* Icon for Concepts */
+        }
+
+        .sub-nav-item[href="resource.html"]::before {
+            background-image: url('pic/9.png');  /* Icon for Resources */
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-left">
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <svg class="exercism-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 3L4.5 7.5V16.5L12 21L19.5 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="1.5"/>
                     <path d="M12 8L8 10.5V15.5L12 18L16 15.5V10.5L12 8Z" fill="currentColor"/>
                 </svg>
-                <span class="logo-text">exercism</span>
-            </div>
+                <span class="logo-text">Algorithm Learning</span>
+            </a>
             <div class="nav-links">
                 <div class="nav-item-wrapper">
                     <a href="learn.html" class="nav-item">Learn</a>
@@ -37,8 +280,26 @@
                             </a>
                         </div>
                     </nav>
+                </div>  
+                <div class="nav-item-wrapper">
+                    <a href="discover.html" class="nav-item">Discover</a>
+                    <nav class="sub-nav">
+                        <div class="sub-nav-wrapper">
+                            <a href="discover.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Concepts</span>
+                                    <span class="sub-nav-item-description">Explore algorithm concepts and theory</span>
+                                </div>
+                            </a>
+                            <a href="resource.html" class="sub-nav-item active">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Resources</span>
+                                    <span class="sub-nav-item-description">Access learning materials and documentation</span>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
                 </div>
-                <a href="discover.html" class="nav-item">Discover</a>
                 <a href="contribute.html" class="nav-item">Contribute</a>
                 <a href="#" class="nav-item">More</a>
             </div>
@@ -49,26 +310,107 @@
         </div>
     </nav>
 
-    <main>
-        <div class="content-wrapper">
-            <div class="discover-content">
-                <h1>Discover New Algorithms</h1>
-                <div class="search-section">
-                    <input type="search" placeholder="Search algorithms..." class="search-input">
-                </div>
-                <div class="algorithm-grid">
-                    <div class="algorithm-item">
-                        <h3>Quick Sort</h3>
-                        <p>Advanced sorting algorithm with O(n log n) complexity</p>
-                    </div>
-                    <div class="algorithm-item">
-                        <h3>Merge Sort</h3>
-                        <p>Divide and conquer sorting algorithm</p>
-                    </div>
-                    <!-- Add more algorithm items -->
-                </div>
-            </div>
+    <main class="container">
+        <div class="content-header">
+            <h1>Discover Resources</h1>
+            <p>Access our collection of algorithm learning materials and documentation.</p>
+        </div>
+
+        <div class="documents-grid">
+            <!-- Document cards will be dynamically added here -->
         </div>
     </main>
+
+    <script>
+        class DocumentCard {
+            constructor(container, { title, description, url, thumbnail, type }) {
+                this.container = container;
+                this.title = title;
+                this.description = description;
+                this.url = url;
+                this.thumbnail = thumbnail;
+                this.type = type || 'video';  // Default to video if not specified
+                this.render();
+                this.attachEventListeners();
+            }
+
+            render() {
+                const cardHTML = `
+                    <div class="document-card ${this.type}">
+                        <div class="thumbnail-wrapper">
+                            <img src="${this.thumbnail}" alt="${this.title}" class="thumbnail">
+                        </div>
+                        <div class="document-info">
+                            <h3>${this.title}</h3>
+                            <div class="document-meta">
+                                <span>${this.type === 'video' ? 'Video Tutorial' : 'Resource Folder'}</span>
+                                <span>${this.type === 'video' ? 'Watch on YouTube' : 'Access Materials'}</span>
+                            </div>
+                            <p class="document-description">${this.description}</p>
+                            <span class="document-type ${this.type}">${this.type.toUpperCase()}</span>
+                        </div>
+                    </div>
+                `;
+                
+                this.container.innerHTML = cardHTML;
+            }
+
+            attachEventListeners() {
+                const card = this.container.querySelector('.document-card');
+                card.addEventListener('click', () => {
+                    window.open(this.url, '_blank');
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const documents = [
+                {
+                    title: "Visualization of 24 Sorting Algorithms In 2 Minutes",
+                    url: "https://www.youtube.com/watch?v=BeoCbJPuvSE",
+                    description:"Visualization of 24 different sorting algorithms",
+                    thumbnail: "./pic/4.png",
+                    type: "video"
+                },
+                {
+                    title: "Visual Quick Sort (HD)",
+                    description: "Animated demonstration of the sorting algorithm.",
+                    url: "https://www.youtube.com/watch?v=aXXWXz5rF64",
+                    thumbnail: "./pic/5.png",
+                    type: "video"
+                },
+                {
+                    title: "Classroom Resources",
+                    description: "Access course materials, assignments, and additional learning resources",
+                    url: "https://drive.google.com/drive/folders/1sIQ3ITidNm5Mj9x8uWlWTu0HMpKgIJaP?usp=drive_link",
+                    thumbnail: "./pic/6.png",
+                    type: "folder"
+                },
+                {
+                    title: "Every Sorting Algorithm Explained in 120 minutes (full series)",
+                    description: "This is a compilation video of the 4 existing sorting videos.",
+                    url: "https://www.youtube.com/watch?v=h1Bi0granxM",
+                    thumbnail: "./pic/7.png",
+                    type: "video"
+                },
+                {
+                    title: "Insertion Sort Visualization",
+                    url: "https://www.youtube.com/watch?v=Q1JdRUh1_98",
+                    thumbnail: "./pic/8.png",
+                    type: "video"
+                },
+
+            ];
+
+            const grid = document.querySelector('.documents-grid');
+            grid.innerHTML = '';
+
+            documents.forEach(doc => {
+                const cardContainer = document.createElement('div');
+                new DocumentCard(cardContainer, doc);
+                grid.appendChild(cardContainer);
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>

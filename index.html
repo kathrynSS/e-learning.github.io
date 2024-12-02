@@ -6,6 +6,18 @@
     <title>Programming Learning Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: #F8F9FB;
+        }
+        .sub-nav-item[href="discover.html"]::before {
+            background-image: url('pic/8.png');  /* Icon for Concepts */
+        }
+
+        .sub-nav-item[href="resource.html"]::before {
+            background-image: url('pic/9.png');  /* Icon for Resources */
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -37,8 +49,26 @@
                             </a>
                         </div>
                     </nav>
+                </div>  
+                <div class="nav-item-wrapper">
+                    <a href="discover.html" class="nav-item">Discover</a>
+                    <nav class="sub-nav">
+                        <div class="sub-nav-wrapper">
+                            <a href="discover.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Concepts</span>
+                                    <span class="sub-nav-item-description">Explore algorithm concepts and theory</span>
+                                </div>
+                            </a>
+                            <a href="resource.html" class="sub-nav-item active">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Resources</span>
+                                    <span class="sub-nav-item-description">Access learning materials and documentation</span>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
                 </div>
-                <a href="discover.html" class="nav-item">Discover</a>
                 <a href="contribute.html" class="nav-item">Contribute</a>
                 <a href="#" class="nav-item">More</a>
             </div>
