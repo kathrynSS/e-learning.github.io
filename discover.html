@@ -22,18 +22,25 @@
         }
 
         .content-header {
-            padding: 20px 0;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(107, 91, 214, 0.1);
         }
 
         .content-header h1 {
             font-size: 2.5rem;
-            color: #2D2D3A;
-            margin-bottom: 8px;
+            color: #2D2D4A;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #2D2D4A 0%, #6B5BD6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .content-header p {
-            font-size: 1.1rem;
-            color: #57576B;
+            color: #666;
+            font-size: 1.2rem;
         }
 
         .documents-grid {
@@ -240,13 +247,575 @@
             gap: 0.5rem;
         }
 
-        /* Add specific icon styles for Discover dropdown items */
+        /* Update icon styles for Discover dropdown items */
         .sub-nav-item[href="discover.html"]::before {
-            background-image: url('pic/10.png');  /* Icon for Concepts */
+            background-image: url('pic/8.png');  /* Icon for Concepts */
         }
 
         .sub-nav-item[href="resource.html"]::before {
             background-image: url('pic/9.png');  /* Icon for Resources */
+        }
+
+        /* Add icon styles for Share dropdown items */
+        .sub-nav-item[href="qa.html"]::before {
+            background-image: url('pic/11.png');  /* Icon for Q&A */
+        }
+
+        .sub-nav-item[href="projects.html"]::before {
+            background-image: url('pic/12.png');  /* Icon for Mini Projects */
+        }
+
+        .sub-nav-item[href="homework.html"]::before {
+            background-image: url('pic/13.png');  /* Icon for Homework */
+        }
+
+        .complexity-badges {
+            display: flex;
+            gap: 8px;
+            margin: 8px 0;
+        }
+
+        .badge {
+            background: rgba(107, 91, 214, 0.1);
+            color: #6B5BD6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .key-points {
+            margin: 12px 0;
+            padding: 12px;
+            background: rgba(107, 91, 214, 0.05);
+            border-radius: 8px;
+        }
+
+        .key-points h4 {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #2D2D4A;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .key-points li {
+            font-size: 0.85rem;
+            color: #4A4A6A;
+            margin: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .key-points li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #6B5BD6;
+        }
+
+        .learn-more-btn {
+            background: #6B5BD6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .learn-more-btn:hover {
+            background: #5849c4;
+            transform: translateY(-2px);
+        }
+
+        /* Update the algorithm-details styles */
+        .algorithm-details {
+            display: none;
+            margin-top: 12px;
+            border-top: 1px solid rgba(107, 91, 214, 0.1);
+            padding-top: 12px;
+        }
+
+        .algorithm-details.show {
+            display: block;
+        }
+
+        .implementation-example {
+            background: rgba(107, 91, 214, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        .implementation-example code {
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #2D2D4A;
+        }
+
+        .algorithm-details {
+            display: none;
+            margin-top: 12px;
+            border-top: 1px solid rgba(107, 91, 214, 0.1);
+            padding-top: 12px;
+        }
+
+        .algorithm-details.show {
+            display: block;
+        }
+
+        .document-info {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .learn-more-btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        /* Algorithm Navigation Styles */
+        .algorithm-nav {
+            width: 250px;
+            position: fixed;
+            left: 20px;
+            top: 100px;
+            bottom: 0;
+            background: white;
+            padding: 20px;
+            border: 1px solid rgba(107, 91, 214, 0.1);
+            overflow-y: auto;
+            z-index: 1;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(107, 91, 214, 0.1);
+            max-height: calc(100vh - 120px);
+        }
+
+        .algorithm-nav h3 {
+            color: #2D2D4A;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .algorithm-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .algorithm-list li {
+            margin: 8px 0;
+        }
+
+        .algorithm-list a {
+            display: block;
+            padding: 8px 12px;
+            color: #4A4A6A;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .algorithm-list li.active a {
+            background: rgba(107, 91, 214, 0.1);
+            color: #6B5BD6;
+            font-weight: 500;
+        }
+
+        .algorithm-list a:hover {
+            background: rgba(107, 91, 214, 0.05);
+            color: #6B5BD6;
+        }
+
+        /* Adjust main content to accommodate side navigation */
+        .container {
+            margin-left: 290px;
+            padding: 20px 40px;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Visual Example Styles */
+        .visual-example {
+            background: rgba(107, 91, 214, 0.05);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            margin: 0.25rem 0;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .step .arrow {
+            color: #6B5BD6;
+            margin: 0 4px;
+        }
+
+        .step .comment {
+            color: #666;
+            margin-left: 2px;
+            font-size: 0.85rem;
+        }
+
+        /* Update main navigation z-index */
+        .main-nav {
+            z-index: 2;
+        }
+
+        /* Add some spacing for the algorithm nav */
+        main {
+            padding-top: 20px;
+        }
+
+        /* Add styles for new sections */
+        .optimization-section,
+        .applications-section {
+            background: rgba(107, 91, 214, 0.05);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+
+        .optimization-section h4,
+        .applications-section h4 {
+            color: #2D2D4A;
+            margin: 12px 0 8px;
+            font-size: 1rem;
+        }
+
+        .optimization-section ul,
+        .applications-section ul {
+            list-style: disc;
+            margin-left: 20px;
+            color: #4A4A6A;
+        }
+
+        .visual-example h4 {
+            margin: 16px 0 8px;
+            color: #2D2D4A;
+            font-size: 1rem;
+        }
+
+        /* Algorithm Content Styles */
+        .algorithm-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .algorithm-content section {
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(107, 91, 214, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .algorithm-content section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 91, 214, 0.15);
+        }
+
+        .algorithm-content h2 {
+            color: #2D2D4A;
+            margin-bottom: 0.75rem;
+            font-size: 1.8rem;
+        }
+
+        .algorithm-content h3 {
+            color: #2D2D4A;
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.4rem;
+        }
+
+        .code-block {
+            background: #282a36;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            position: relative;
+            margin-top: 1rem;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        .code-block code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            display: block;
+            white-space: pre;
+            color: #f8f8f2;
+        }
+
+        /* Add language indicator */
+        .code-block::before {
+            content: 'Python';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(107, 91, 214, 0.1);
+            padding: 4px 8px;
+            border-radius: 0 8px 0 8px;
+            font-size: 0.8rem;
+            color: #6B5BD6;
+        }
+
+        .complexity-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .complexity-details li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .complexity-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #6B5BD6;
+        }
+
+        .application-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .case {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(107, 91, 214, 0.1);
+            box-shadow: 0 2px 4px rgba(107, 91, 214, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .case:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 91, 214, 0.1);
+        }
+
+        /* Add consistent spacing for lists */
+        .step-by-step li {
+            margin-bottom: 1rem;
+        }
+
+        .step-by-step li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Add more breathing room for code block */
+        .code-block {
+            margin: 1.5rem 0;
+            padding: 2rem;
+        }
+
+        /* Typography improvements */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+        .algorithm-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .algorithm-content h2 {
+            color: #2D2D4A;
+            margin-bottom: 0.75rem;
+            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .algorithm-content h3 {
+            color: #2D2D4A;
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .algorithm-content p {
+            color: #4A4A6A;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Step by step list improvements */
+        .step-by-step {
+            font-size: 1.05rem;
+            color: #4A4A6A;
+        }
+
+        .step-by-step li {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Visual example improvements */
+        .visual-example {
+            background: rgba(107, 91, 214, 0.05);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            margin: 0.25rem 0;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .step .arrow {
+            color: #6B5BD6;
+            margin: 0 4px;
+        }
+
+        .step .comment {
+            color: #666;
+            margin-left: 2px;
+            font-size: 0.85rem;
+        }
+
+        /* Adjust spacing between passes */
+        .visual-example h3 {
+            margin-top: 0.5rem;
+            margin-bottom: 0.15rem;
+            font-size: 1.1rem;
+        }
+
+        /* Adjust initial array spacing */
+        .visual-example p {
+            margin-bottom: 0.15rem;
+        }
+
+        /* Make the last step in each pass have slightly more bottom margin */
+        .step:last-of-type {
+            margin-bottom: 0.35rem;
+        }
+
+        /* Code block improvements */
+        .code-block code {
+            font-family: 'Fira Code', monospace;
+            font-weight: 400;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Complexity section improvements */
+        .complexity-details ul li {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #4A4A6A;
+        }
+
+        .complexity-details strong {
+            color: #2D2D4A;
+            font-weight: 600;
+        }
+
+        /* Applications section improvements */
+        .case h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #2D2D4A;
+            margin-bottom: 0.75rem;
+        }
+
+        .case ul li {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #4A4A6A;
+        }
+
+        /* Comments in visual example */
+        .step .comment {
+            color: #6B5BD6;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Content header improvements */
+        .content-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .content-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .try-visualization {
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        .try-visual-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: white;
+            color: #6B5BD6;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border: 2px solid #6B5BD6;
+            box-shadow: 0 2px 4px rgba(107, 91, 214, 0.1);
+        }
+
+        .try-visual-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .try-visual-btn:hover {
+            background: #6B5BD6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 91, 214, 0.2);
         }
     </style>
 </head>
@@ -300,8 +869,32 @@
                         </div>
                     </nav>
                 </div>
-                <a href="contribute.html" class="nav-item">Contribute</a>
-                <a href="#" class="nav-item">More</a>
+                <a href="exercises.html" class="nav-item">Exercise</a>
+                <div class="nav-item-wrapper">
+                    <a href="qa.html" class="nav-item">Share</a>
+                    <nav class="sub-nav">
+                        <div class="sub-nav-wrapper">
+                            <a href="qa.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Q&A</span>
+                                    <span class="sub-nav-item-description">Ask questions and share knowledge</span>
+                                </div>
+                            </a>
+                            <a href="projects.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Mini Projects</span>
+                                    <span class="sub-nav-item-description">Share and explore algorithm projects</span>
+                                </div>
+                            </a>
+                            <a href="homework.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Homework</span>
+                                    <span class="sub-nav-item-description">Submit and discuss homework assignments</span>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
             </div>
         </div>
         <div class="nav-right">
@@ -310,105 +903,199 @@
         </div>
     </nav>
 
+    <!-- Algorithm Navigation -->
+    <div class="algorithm-nav">
+        <h3>Sorting Algorithms</h3>
+        <ul class="algorithm-list">
+            <li class="active">
+                <a href="discover.html">Bubble Sort</a>
+            </li>
+            <li>
+                <a href="insertsort.html">Insertion Sort</a>
+            </li>
+            <li>
+                <a href="selectsort.html">Selection Sort</a>
+            </li>
+            <li>
+                <a href="quicksort.html">Quick Sort</a>
+            </li>
+            <li>
+                <a href="advancesorting.html">Advanced Sorting</a>
+            </li>
+        </ul>
+    </div>
+
     <main class="container">
         <div class="content-header">
-            <h1>Discover Resources</h1>
-            <p>Access our collection of algorithm learning materials and documentation.</p>
+            <h1>Bubble Sort</h1>
+            <p>A simple and fundamental sorting algorithm</p>
         </div>
 
-        <div class="documents-grid">
-            <!-- Document cards will be dynamically added here -->
+        <div class="algorithm-content">
+            <section class="concept-overview">
+                <h2>Concept Overview</h2>
+                <p>
+                    Bubble Sort is one of the simplest sorting algorithms that works by repeatedly stepping through a list, 
+                    comparing adjacent elements, and swapping them if they are in the wrong order. The algorithm gets its name 
+                    because elements "bubble up" to their correct positions, similar to air bubbles rising in water.
+                </p>
+            </section>
+
+            <section class="how-it-works">
+                <h2>How It Works</h2>
+                <ol class="step-by-step">
+                    <li>Start with the first element and compare it with the second element</li>
+                    <li>If the first element is greater than the second element, swap them</li>
+                    <li>Move to the next pair (second and third elements)</li>
+                    <li>Repeat this process until reaching the end of the array</li>
+                    <li>After one complete pass, the largest element will have "bubbled up" to the last position</li>
+                    <li>Repeat the process for the remaining elements</li>
+                </ol>
+            </section>
+
+            <section class="visual-example">
+                <h2>Visual Example</h2>
+                <p>Initial array: [5, 3, 8, 4, 2]</p>
+                
+                <h3>First Pass:</h3>
+                <div class="step">
+                    [5, 3, 8, 4, 2] <span class="arrow">→</span> [3, 5, 8, 4, 2]
+                    <span class="comment">Compare 5,3: swap</span>
+                </div>
+
+                <h3>Second Pass:</h3>
+                <div class="step">
+                    [3, 5, 8, 4, 2] <span class="arrow">→</span> [3, 5, 8, 4, 2]
+                    <span class="comment">Compare 5,8: no swap</span>
+                </div>
+
+                <h3>Third Pass:</h3>
+                <div class="step">
+                    [3, 5, 8, 4, 2] <span class="arrow">→</span> [3, 5, 4, 8, 2]
+                    <span class="comment">Compare 8,4: swap</span>
+                </div>
+
+                <h3>Fourth Pass:</h3>
+                <div class="step">
+                    [3, 5, 4, 8, 2] <span class="arrow">→</span> [3, 5, 4, 2, 8]
+                    <span class="comment">Compare 8,2: swap</span>
+                </div>
+
+                <div class="try-visualization">
+                    <a href="visualization.html" class="try-visual-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5zm10 0a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5zM4 15a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4zm10 0a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4z" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                        Try Interactive Visualization
+                    </a>
+                </div>
+            </section>
+
+            <section class="implementation">
+                <h2>Implementation Example</h2>
+                <div class="code-block">
+                    <pre><code>def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        # Flag to optimize for already sorted arrays
+        swapped = False
+        
+        # Last i elements are already in place
+        for j in range(0, n-i-1):
+            # Compare adjacent elements
+            if arr[j] > arr[j+1]:
+                # Swap them if they are in wrong order
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
+        
+        # If no swapping occurred, array is already sorted
+        if not swapped:
+            break
+            
+    return arr</code></pre>
+                </div>
+            </section>
+
+            <section class="complexity">
+                <h2>Performance Analysis</h2>
+                <div class="complexity-details">
+                    <h3>Time Complexity:</h3>
+                    <ul>
+                        <li><strong>Best Case (Already Sorted):</strong>
+                            <ul>
+                                <li>Comparisons: n-1</li>
+                                <li>Moves: 2(n-1)</li>
+                                <li>Time Complexity: O(n)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Worst Case (Reverse Sorted):</strong>
+                            <ul>
+                                <li>Comparisons: n(n-1)/2</li>
+                                <li>Moves: n(n-1)/2</li>
+                                <li>Time Complexity: O(n²)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Average Case:</strong> O(n²)</li>
+                    </ul>
+                    <h3>Space Complexity:</h3>
+                    <ul>
+                        <li>O(1) auxiliary space</li>
+                        <li>In-place sorting algorithm</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="applications">
+                <h2>Practical Applications</h2>
+                <div class="application-cases">
+                    <div class="case">
+                        <h3>Best Used When</h3>
+                        <ul>
+                            <li>Small number of elements</li>
+                            <li>Nearly sorted array</li>
+                            <li>Online sorting (data received in real-time)</li>
+                            <li>Limited memory availability</li>
+                            <li>Simple implementation needed</li>
+                        </ul>
+                    </div>
+                    <div class="case">
+                        <h3>Real-world Applications</h3>
+                        <ul>
+                            <li>Library card sorting</li>
+                            <li>Hand sorting of playing cards</li>
+                            <li>Small datasets in embedded systems</li>
+                            <li>As part of more complex hybrid sorting algorithms</li>
+                        </ul>
+                    </div>
+                    <div class="case">
+                        <h3>Advantages Over Bubble Sort</h3>
+                        <ul>
+                            <li>Generally performs better</li>
+                            <li>Requires fewer writes to memory</li>
+                            <li>More efficient for nearly sorted data</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
     <script>
-        class DocumentCard {
-            constructor(container, { title, description, url, thumbnail, type }) {
-                this.container = container;
-                this.title = title;
-                this.description = description;
-                this.url = url;
-                this.thumbnail = thumbnail;
-                this.type = type || 'video';  // Default to video if not specified
-                this.render();
-                this.attachEventListeners();
-            }
-
-            render() {
-                const cardHTML = `
-                    <div class="document-card ${this.type}">
-                        <div class="thumbnail-wrapper">
-                            <img src="${this.thumbnail}" alt="${this.title}" class="thumbnail">
-                        </div>
-                        <div class="document-info">
-                            <h3>${this.title}</h3>
-                            <div class="document-meta">
-                                <span>${this.type === 'video' ? 'Video Tutorial' : 'Resource Folder'}</span>
-                                <span>${this.type === 'video' ? 'Watch on YouTube' : 'Access Materials'}</span>
-                            </div>
-                            <p class="document-description">${this.description}</p>
-                            <span class="document-type ${this.type}">${this.type.toUpperCase()}</span>
-                        </div>
-                    </div>
-                `;
-                
-                this.container.innerHTML = cardHTML;
-            }
-
-            attachEventListeners() {
-                const card = this.container.querySelector('.document-card');
-                card.addEventListener('click', () => {
-                    window.open(this.url, '_blank');
-                });
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            const documents = [
-                {
-                    title: "Visualization of 24 Sorting Algorithms In 2 Minutes",
-                    url: "https://www.youtube.com/watch?v=BeoCbJPuvSE",
-                    description:"Visualization of 24 different sorting algorithms",
-                    thumbnail: "./pic/4.png",
-                    type: "video"
-                },
-                {
-                    title: "Visual Quick Sort (HD)",
-                    description: "Animated demonstration of the sorting algorithm.",
-                    url: "https://www.youtube.com/watch?v=aXXWXz5rF64",
-                    thumbnail: "./pic/5.png",
-                    type: "video"
-                },
-                {
-                    title: "Classroom Resources",
-                    description: "Access course materials, assignments, and additional learning resources",
-                    url: "https://drive.google.com/drive/folders/1sIQ3ITidNm5Mj9x8uWlWTu0HMpKgIJaP?usp=drive_link",
-                    thumbnail: "./pic/6.png",
-                    type: "folder"
-                },
-                {
-                    title: "Every Sorting Algorithm Explained in 120 minutes (full series)",
-                    description: "This is a compilation video of the 4 existing sorting videos.",
-                    url: "https://www.youtube.com/watch?v=h1Bi0granxM",
-                    thumbnail: "./pic/7.png",
-                    type: "video"
-                },
-                {
-                    title: "Insertion Sort Visualization",
-                    url: "https://www.youtube.com/watch?v=Q1JdRUh1_98",
-                    thumbnail: "./pic/8.png",
-                    type: "video"
-                },
-
-            ];
-
-            const grid = document.querySelector('.documents-grid');
-            grid.innerHTML = '';
-
-            documents.forEach(doc => {
-                const cardContainer = document.createElement('div');
-                new DocumentCard(cardContainer, doc);
-                grid.appendChild(cardContainer);
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.document-card');
+                    const details = card.querySelector('.algorithm-details');
+                    
+                    if (details) {
+                        // Toggle details visibility using classes
+                        const isVisible = details.classList.contains('show');
+                        details.classList.toggle('show');
+                        this.textContent = isVisible ? "Learn More" : "Show Less";
+                    }
+                });
             });
         });
     </script>

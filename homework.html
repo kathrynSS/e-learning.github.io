@@ -3,85 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algorithm Visualization - Sorting Algorithms</title>
+    <title>Homework - Algorithm Learning Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .main-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: white;
-            height: 50px;
-        }
-
-        main {
-            margin-top: 0;
-            padding-top: 50px;
-            height: calc(100vh - 20px);
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            padding: 50px 20px 20px 20px;
-            max-width: 2400px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #1a1a1a;
-        }
-
-        iframe {
-            width: 100%;
-            min-height: calc(100vh - 70px);
-            height: 100%;
-            border: none;
-            display: block;
-            margin: 5px auto 0;
-            position: relative;
-            z-index: 2;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            max-width: 2400px;
-            background-color: #1a1a1a;
-        }
-
-        .visualization-container {
-            width: 100%;
-            max-width: 2400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Update icon styles for Discover dropdown items */
-        .sub-nav-item[href="discover.html"]::before {
-            background-image: url('pic/8.png');  /* Icon for Concepts */
-        }
-
-        .sub-nav-item[href="resource.html"]::before {
-            background-image: url('pic/9.png');  /* Icon for Resources */
-        }
-
-        /* Add icon styles for Share dropdown items */
-        .sub-nav-item[href="qa.html"]::before {
-            background-image: url('pic/11.png');  /* Icon for Q&A */
-        }
-
-        .sub-nav-item[href="projects.html"]::before {
-            background-image: url('pic/12.png');  /* Icon for Mini Projects */
-        }
-
-        .sub-nav-item[href="homework.html"]::before {
-            background-image: url('pic/13.png');  /* Icon for Homework */
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -105,7 +29,7 @@
                                     <span class="sub-nav-item-description">Follow a structured path to mastery</span>
                                 </div>
                             </a>
-                            <a href="visualization.html" class="sub-nav-item active">
+                            <a href="visualization.html" class="sub-nav-item">
                                 <div class="sub-nav-item-content">
                                     <span class="sub-nav-item-title">Visualization</span>
                                     <span class="sub-nav-item-description">See algorithms in action</span>
@@ -113,7 +37,7 @@
                             </a>
                         </div>
                     </nav>
-                </div>  
+                </div>
                 <div class="nav-item-wrapper">
                     <a href="discover.html" class="nav-item">Discover</a>
                     <nav class="sub-nav">
@@ -124,7 +48,7 @@
                                     <span class="sub-nav-item-description">Explore algorithm concepts and theory</span>
                                 </div>
                             </a>
-                            <a href="resource.html" class="sub-nav-item active">
+                            <a href="resource.html" class="sub-nav-item">
                                 <div class="sub-nav-item-content">
                                     <span class="sub-nav-item-title">Resources</span>
                                     <span class="sub-nav-item-description">Access learning materials and documentation</span>
@@ -150,7 +74,7 @@
                                     <span class="sub-nav-item-description">Share and explore algorithm projects</span>
                                 </div>
                             </a>
-                            <a href="homework.html" class="sub-nav-item">
+                            <a href="homework.html" class="sub-nav-item active">
                                 <div class="sub-nav-item-content">
                                     <span class="sub-nav-item-title">Homework</span>
                                     <span class="sub-nav-item-description">Submit and discuss homework assignments</span>
@@ -167,14 +91,101 @@
         </div>
     </nav>
 
-    <main>
-        <iframe 
-            src="https://sorting-algorithms-app-v2.vercel.app/" 
-            frameborder="0"
-            allowfullscreen
-            allow="fullscreen; autoplay; clipboard-write; web-share"
-            referrerpolicy="origin">
-        </iframe>
+    <main class="homework-main">
+        <div class="homework-header">
+            <h1>Assignment Submission</h1>
+            <div class="submission-info">
+                <div class="info-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Please submit before the deadline</span>
+                </div>
+                <div class="info-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Follow submission guidelines carefully</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="submission-container">
+            <div class="padlet-embed">
+                <iframe src="https://padlet.com/song_jiajia/upload-your-assignment-due-before-session-3-pe9gx1a8flyc8vek" 
+                        style="width:100%;height:700px"
+                        frameborder="0">
+                </iframe>
+            </div>
+        </div>
     </main>
+
+    <style>
+        .homework-main {
+            padding: 2rem 4rem;
+            background: #f8fafc;
+            min-height: calc(100vh - 64px);
+        }
+
+        .homework-header {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .homework-header h1 {
+            font-size: 2.2rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .submission-info {
+            display: flex;
+            gap: 2rem;
+            color: #475569;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .info-item svg {
+            color: #64748b;
+        }
+
+        .submission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+        }
+
+        .padlet-embed {
+            border-radius: 4px;
+            overflow: hidden;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .homework-main {
+                padding: 1rem;
+            }
+
+            .submission-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+
+    <footer>
+    </footer>
 </body>
-</html>
+</html> 

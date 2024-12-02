@@ -22,12 +22,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.95);
+    padding: 1.25rem 2.5rem;
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(107, 91, 214, 0.1);
+    border-bottom: 2px solid rgba(107, 91, 214, 0.08);
     box-shadow: 
-        0 4px 12px rgba(107, 91, 214, 0.05),
+        0 4px 20px rgba(107, 91, 214, 0.08),
         0 1px 3px rgba(0, 0, 0, 0.02);
     position: sticky;
     top: 0;
@@ -45,26 +45,32 @@ body {
     align-items: center;
     gap: 0.75rem;
     color: var(--text-color);
-    margin-right: 1rem;
-    transition: transform 0.3s ease, color 0.3s ease;
-    text-decoration: none;  /* Remove underline from link */
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 12px;
 }
 
 .logo:hover {
-    transform: translateY(-2px);
-    color: #6B5BD6;
+    transform: translateY(-2px) scale(1.02);
+    background: rgba(107, 91, 214, 0.05);
 }
 
 .exercism-logo {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     color: var(--primary-color);
     filter: drop-shadow(0 2px 4px rgba(107, 91, 214, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .exercism-logo {
+    transform: rotate(-10deg);
 }
 
 .logo-text {
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     background: linear-gradient(135deg, #6B5BD6 0%, #8075DD 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -74,84 +80,41 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .nav-item {
     text-decoration: none;
-    color: var(--text-color);
+    color: #4A4A6A;
     font-weight: 500;
     padding: 0.5rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     position: relative;
     font-size: 1.1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    background: transparent;
 }
 
 .nav-item:hover {
     color: #6B5BD6;
     background: rgba(107, 91, 214, 0.05);
-    transform: translateY(-1px);
-    box-shadow: 
-        0 4px 12px rgba(107, 91, 214, 0.1),
-        0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #6B5BD6;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 .nav-item:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.btn-signup {
-    background: linear-gradient(135deg, #6B5BD6 0%, #8075DD 100%);
-    color: white;
-    border: none;
-    padding: 0.625rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 
-        0 4px 12px rgba(107, 91, 214, 0.2),
-        0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-signup:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        0 6px 16px rgba(107, 91, 214, 0.3),
-        0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-login {
-    background: rgba(107, 91, 214, 0.05);
-    color: #6B5BD6;
-    border: 2px solid rgba(107, 91, 214, 0.2);
-    padding: 0.625rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-login:hover {
-    background: rgba(107, 91, 214, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 
-        0 4px 12px rgba(107, 91, 214, 0.1),
-        0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 80%;
 }
 
 /* Main Content */
@@ -175,7 +138,7 @@ main::before {
 }
 
 .content-wrapper {
-    max-width: 1200px;
+    max-width: 1300px;  /* Increased from 1200px */
     margin: 0 auto;
     padding: 2rem;
     display: grid;
@@ -185,22 +148,38 @@ main::before {
     z-index: 1;
 }
 
+/* Remove animation from the original h1 definition */
 h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;  /* Increased from 3.5rem */
     color: var(--text-color);
     margin-bottom: 1.25rem;
     font-weight: 800;
     font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.2;
+    position: relative;
 }
 
+/* Update the later "Add playful animations to the title" section */
+/* Remove or comment out this entire block since it's adding the animation back
+h1 {
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+}
+*/
+
+/* Keep other playful elements but remove the float animation */
 .highlight {
-    background-color: var(--highlight-color);
-    padding: 0 0.5rem;
-    padding-bottom: 0.2rem;
-    margin: 0 -0.5rem;
+    background: linear-gradient(120deg, #FFE66D 0%, #FFF3B4 100%);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    transform: rotate(-2deg);
     display: inline-block;
-    transform: rotate(-1deg);
+    transition: transform 0.3s ease;
+    box-shadow: 2px 2px 0 rgba(107, 91, 214, 0.2);
+}
+
+h1:hover .highlight {
+    transform: rotate(2deg) scale(1.05);
 }
 
 .underline {
@@ -210,7 +189,7 @@ h1 {
 .info-box {
     margin-top: 2rem;
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 2rem;
     background: white;
     box-shadow: 0 0 0 2px rgba(107, 91, 214, 0.1);
     position: relative;
@@ -288,7 +267,7 @@ h1 {
     }
     
     .main-nav {
-        padding: 0.75rem 1rem;
+        padding: 1rem;
     }
     
     .nav-right {
@@ -458,7 +437,7 @@ h1 {
 .left-content {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 650px;  /* Increased from 600px */
     padding-top: 2rem;
 }
 
@@ -666,7 +645,9 @@ main::after {
     padding: 16px;
     position: relative;
     font-size: 1rem;
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
     border-radius: 12px;
     transition: all 0.2s ease;
     background: white;
@@ -674,12 +655,6 @@ main::after {
 }
 
 .sub-nav-item:hover {
-    background-color: #F8F9FF;
-    color: var(--primary-color);
-    border-color: rgba(107, 91, 214, 0.1);
-}
-
-.sub-nav-item.active {
     background-color: #F8F9FF;
     color: var(--primary-color);
     border-color: rgba(107, 91, 214, 0.1);
@@ -1605,16 +1580,7 @@ main {
 /* Add floating effect to path icon */
 .path-icon {
     filter: drop-shadow(0 4px 8px rgba(107, 91, 214, 0.2));
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+    /* remove animation: float 6s ease-in-out infinite; */
 }
 
 /* Enhanced header text */
@@ -1631,3 +1597,882 @@ main {
     font-size: 1.2rem;
     line-height: 1.6;
 } 
+
+.qa-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.qa-container {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.qa-item {
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.qa-item h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.ask-question {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.question-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+} 
+
+/* Discussion Rooms Styles */
+.discussion-rooms {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.room-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(107, 91, 214, 0.1);
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(107, 91, 214, 0.15);
+}
+
+.room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.room-header h2 {
+    font-size: 1.25rem;
+    color: #2D2D4A;
+}
+
+.room-status {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: #e6f7ed;
+    color: #0d9f4f;
+}
+
+.room-status.active {
+    background: #e6f7ed;
+    color: #0d9f4f;
+}
+
+.room-description {
+    color: #4A4A6A;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.room-stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.join-room-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #6B5BD6;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+}
+
+.join-room-btn:hover {
+    background: #5648c0;
+}
+
+.teacher-room {
+    border: 2px solid #6B5BD6;
+    background: linear-gradient(to bottom right, #fff, #f8f7ff);
+}
+
+/* Guidelines Section */
+.room-guidelines {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.guideline-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.guideline-item h3 {
+    color: #2D2D4A;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.guideline-item p {
+    color: #4A4A6A;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .room-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .guidelines-grid {
+        grid-template-columns: 1fr;
+    }
+} 
+
+/* Padlet Embed Styles */
+.padlet-embed {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.padlet-embed iframe {
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .padlet-embed iframe {
+        height: 400px;
+    }
+} 
+
+/* QA Page Specific Styles */
+.qa-main {
+    background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
+
+.qa-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+}
+
+.qa-header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #2D2D4A 0%, #6B5BD6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.qa-description {
+    color: #4A4A6A;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.qa-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    background: white;
+    color: #4A4A6A;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(107, 91, 214, 0.1);
+    min-width: 200px;
+    text-align: center;
+}
+
+.tab-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 91, 214, 0.1);
+}
+
+.tab-btn.active {
+    background: #6B5BD6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(107, 91, 214, 0.2);
+}
+
+.room-descriptions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.description-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.description-card h3 {
+    color: #2D2D4A;
+    margin-bottom: 1rem;
+}
+
+.description-card p {
+    color: #4A4A6A;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .tab-btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+    }
+    
+    .room-descriptions {
+        grid-template-columns: 1fr;
+    }
+}
+
+.qa-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    color: #4A4A6A;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(107, 91, 214, 0.1);
+}
+
+.tab-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 91, 214, 0.1);
+}
+
+.tab-btn.active {
+    background: #6B5BD6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(107, 91, 214, 0.2);
+}
+
+.padlet-embed {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.room-container {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.room-container.active {
+    display: block;
+    opacity: 1;
+}
+
+.room-container iframe {
+    width: 100%;
+    height: 700px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+@media (max-width: 768px) {
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .room-container iframe {
+        height: 500px;
+    }
+}
+
+/* Discussion Room Styles */
+.discussion-main {
+    background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
+
+.discussion-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+}
+
+.discussion-header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #2D2D4A 0%, #6B5BD6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.discussion-description {
+    color: #4A4A6A;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.padlet-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.padlet-container iframe {
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+@media (max-width: 768px) {
+    .discussion-header h1 {
+        font-size: 2rem;
+    }
+
+    .discussion-description {
+        font-size: 1rem;
+    }
+
+    .padlet-container iframe {
+        height: 500px;
+    }
+}
+
+/* Add these styles to your existing CSS */
+.teacher-btn {
+    background: #6B5BD6;
+    color: white;
+}
+
+.teacher-btn:hover {
+    background: #5648c0;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 91, 214, 0.2);
+}
+
+/* Discussion Links Styles */
+.discussion-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+}
+
+.discussion-btn {
+    padding: 1rem 2rem;
+    background: white;
+    color: #4A4A6A;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(107, 91, 214, 0.1);
+    min-width: 200px;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    display: block;
+}
+
+.discussion-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 91, 214, 0.2);
+    background: #6B5BD6;
+    color: white;
+}
+
+.discussion-btn.active {
+    background: #6B5BD6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(107, 91, 214, 0.2);
+    pointer-events: auto;
+}
+
+/* Ensure iframe doesn't block buttons */
+.padlet-embed, .padlet-container {
+    position: relative;
+    z-index: 1;
+}
+
+.padlet-embed iframe, .padlet-container iframe {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add these styles for the link-group and link-primary */
+.link-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.link-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    background: linear-gradient(135deg, #6B5BD6 0%, #8075DD 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 2px 8px rgba(107, 91, 214, 0.15),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.link-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 12px rgba(107, 91, 214, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle shine effect */
+.link-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.link-primary:hover::before {
+    left: 125%;
+}
+
+/* Update link group spacing */
+.link-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .link-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .link-primary {
+        width: auto;
+        justify-content: center;
+    }
+}
+
+/* Update info-box styles for better layout */
+.info-box {
+    margin-top: 2rem;
+    border-radius: 16px;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0 0 2px rgba(107, 91, 214, 0.1);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+}
+
+.title-group {
+    margin-bottom: 1rem;
+}
+
+.title-group h2 {
+    font-size: 1.5rem;
+    color: #2D2D4A;
+    margin-bottom: 0.25rem;
+}
+
+.title-group h3 {
+    font-size: 1.1rem;
+    color: #6B5BD6;
+}
+
+.content-group p {
+    color: #4A4A6A;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .link-group {
+        flex-direction: column;
+    }
+    
+    .link-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Practice Card Styles */
+.practice-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 
+        0 4px 20px rgba(107, 91, 214, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(107, 91, 214, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 24px rgba(107, 91, 214, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    margin-bottom: 1.25rem;
+}
+
+.label {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(107, 91, 214, 0.08);
+    color: #6B5BD6;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.card-header h2 {
+    font-size: 1.75rem;
+    color: #2D2D4A;
+    font-weight: 700;
+    font-family: Poppins, sans-serif;
+    margin: 0;
+}
+
+.practice-card p {
+    color: #4A4A6A;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.practice-card .link-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.practice-card .link-primary {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #6B5BD6 0%, #8075DD 100%);
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.practice-card .link-primary:first-child {
+    background: linear-gradient(135deg, #6B5BD6 0%, #8075DD 100%);
+}
+
+.practice-card .link-primary:last-child {
+    background: white;
+    color: #6B5BD6;
+    border: 2px solid rgba(107, 91, 214, 0.2);
+    box-shadow: none;
+}
+
+.practice-card .link-primary:last-child:hover {
+    background: rgba(107, 91, 214, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .practice-card {
+        padding: 1.5rem;
+    }
+
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .practice-card p {
+        font-size: 1rem;
+    }
+
+    .practice-card .link-group {
+        flex-direction: column;
+    }
+}
+
+/* Add playful animations to the title */
+h1 {
+    /* remove animation: float 6s ease-in-out infinite; */
+    position: relative;
+}
+
+.highlight {
+    background: linear-gradient(120deg, #FFE66D 0%, #FFF3B4 100%);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    transform: rotate(-2deg);
+    display: inline-block;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 2px 0 rgba(107, 91, 214, 0.2);
+}
+
+h1:hover .highlight {
+    transform: rotate(2deg) scale(1.05);
+}
+
+/* Add cute decorative elements */
+.left-content::before {
+    content: '✨';
+    position: absolute;
+    top: -20px;
+    left: -30px;
+    font-size: 2rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.left-content::after {
+    content: '🎯';
+    position: absolute;
+    bottom: -20px;
+    right: 40px;
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+/* Make the sorting visualization more playful */
+.sorting-visualization {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f7ff 100%);
+    border: 2px solid rgba(107, 91, 214, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Update the sorting visualization decoration */
+.sorting-visualization::before {
+    content: '⭐';  /* Changed from 🔄 to ⭐ */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    animation: twinkle 2s ease-in-out infinite;  /* Changed from rotate to twinkle */
+}
+
+/* Add new twinkle animation */
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: scale(0.8);
+    }
+}
+
+.bar {
+    border-radius: 8px 8px 0 0;
+    background: linear-gradient(180deg, #8075DD 0%, #6B5BD6 100%);
+    box-shadow: 
+        inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.bar:hover {
+    transform: scaleY(1.1);
+    background: linear-gradient(180deg, #9C8FFF 0%, #8075DD 100%);
+}
+
+/* Make the practice card more engaging */
+.practice-card {
+    border: 2px solid rgba(107, 91, 214, 0.1);
+    border-radius: 24px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f7ff 100%);
+    position: relative;
+}
+
+.practice-card::before {
+    content: '📚';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Add playful animations */
+
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Make buttons more playful */
+.link-primary {
+    transform-origin: center;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.link-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* Add playful hover effect to info box */
+.info-box {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 2px solid rgba(107, 91, 214, 0.1);
+}
+
+/* Add icons for Share dropdown items */
+.sub-nav-item[href="qa.html"]::before {
+    background-image: url('pic/11.png');  /* Icon for Q&A */
+}
+
+.sub-nav-item[href="projects.html"]::before {
+    background-image: url('pic/12.png');  /* Icon for Mini Projects */
+}
+
+.sub-nav-item[href="homework.html"]::before {
+    background-image: url('pic/13.png');  /* Icon for Homework */
+}
+

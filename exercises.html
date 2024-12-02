@@ -4,33 +4,501 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercises - Sorting Algorithms</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add these new styles for the navigation icons */
+        .sub-nav-item[href="discover.html"]::before {
+            background-image: url('pic/8.png');  /* Icon for Concepts */
+        }
+
+        .sub-nav-item[href="resource.html"]::before {
+            background-image: url('pic/9.png');  /* Icon for Resources */
+        }
+
+        body {
+            background: linear-gradient(135deg, rgba(107, 91, 214, 0.05) 0%, rgba(107, 91, 214, 0.02) 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .exercises-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        .exercises-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(107, 91, 214, 0.08);
+            border: 1px solid rgba(107, 91, 214, 0.1);
+        }
+
+        .exercises-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #6B5BD6 0%, #5849c4 100%);
+            border-radius: 2px;
+        }
+
+        .exercises-header h1 {
+            font-size: 2.5rem;
+            color: #2D2D4A;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .exercises-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 4px 24px rgba(107, 91, 214, 0.08);
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .quiz-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(107, 91, 214, 0.12);
+        }
+
+        .quiz-section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .quiz-section-header h2 {
+            font-size: 1.8rem;
+            color: #2D2D4A;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quiz-card {
+            background: #F8F9FB;
+            border-radius: 20px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(107, 91, 214, 0.1);
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(107, 91, 214, 0.12);
+        }
+
+        .quiz-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-info h3 {
+            font-size: 1.5rem;
+            color: #2D2D4A;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .quiz-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .quiz-code {
+            display: inline-block;
+            background: rgba(107, 91, 214, 0.08);
+            color: #6B5BD6;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .qr-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 12px rgba(107, 91, 214, 0.06);
+        }
+
+        .qr-code {
+            width: 180px;
+            height: 180px;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .quiz-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #6B5BD6 0%, #5849c4 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(107, 91, 214, 0.2);
+        }
+
+        .quiz-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(107, 91, 214, 0.3);
+        }
+
+        .additional-practice {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(107, 91, 214, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .additional-practice::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('./pic/12.jpg') center/cover;
+            opacity: 0.1;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .additional-practice:hover::before {
+            opacity: 0.15;
+        }
+
+        .additional-practice > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .additional-practice h2 {
+            font-size: 1.8rem;
+            color: #2D2D4A;
+            margin-bottom: 1rem;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .additional-practice p {
+            color: #666;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+        }
+
+        .programming-link {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(107, 91, 214, 0.1);
+            padding: 1.5rem 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #2D2D4A;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .programming-link:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(107, 91, 214, 0.1);
+        }
+
+        @media (max-width: 900px) {
+            .quiz-cards {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .quiz-section {
+                padding: 2rem;
+            }
+
+            .exercises-content {
+                padding: 0 20px;
+            }
+        }
+
+        .decorative-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6B5BD6 0%, #5849c4 100%);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -150px;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 50px;
+            right: -100px;
+        }
+
+        .page-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding: 1rem 0;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: #6B5BD6;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(107, 91, 214, 0.1);
+        }
+
+        .nav-button:hover {
+            background: #6B5BD6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Add icon styles for Share dropdown items */
+        .sub-nav-item[href="qa.html"]::before {
+            background-image: url('pic/11.png');  /* Icon for Q&A */
+        }
+
+        .sub-nav-item[href="projects.html"]::before {
+            background-image: url('pic/12.png');  /* Icon for Mini Projects */
+        }
+
+        .sub-nav-item[href="homework.html"]::before {
+            background-image: url('pic/13.png');  /* Icon for Homework */
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation (same as index.html) -->
+    <!-- Add these styles at the top of your existing <style> tag -->
+    <style>
+        /* Add these new styles for the navigation icons */
+        .sub-nav-item[href="discover.html"]::before {
+            background-image: url('pic/8.png');  /* Icon for Concepts */
+        }
+
+        .sub-nav-item[href="resource.html"]::before {
+            background-image: url('pic/9.png');  /* Icon for Resources */
+        }
+    </style>
+
+    <!-- Replace the "Keep existing navigation" comment with this navigation code -->
     <nav class="main-nav">
-        <!-- Copy the nav content from index.html -->
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <svg class="exercism-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L4.5 7.5V16.5L12 21L19.5 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 8L8 10.5V15.5L12 18L16 15.5V10.5L12 8Z" fill="currentColor"/>
+                </svg>
+                <span class="logo-text">Algorithm Learning</span>
+            </a>
+            <div class="nav-links">
+                <div class="nav-item-wrapper">
+                    <a href="learn.html" class="nav-item">Learn</a>
+                    <nav class="sub-nav">
+                        <div class="sub-nav-wrapper">
+                            <a href="learn.html" class="sub-nav-item active">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Learning Path</span>
+                                    <span class="sub-nav-item-description">Follow a structured path to mastery</span>
+                                </div>
+                            </a>
+                            <a href="visualization.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Visualization</span>
+                                    <span class="sub-nav-item-description">See algorithms in action</span>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
+                </div>  
+                <div class="nav-item-wrapper">
+                    <a href="discover.html" class="nav-item">Discover</a>
+                    <nav class="sub-nav">
+                        <div class="sub-nav-wrapper">
+                            <a href="discover.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Concepts</span>
+                                    <span class="sub-nav-item-description">Explore algorithm concepts and theory</span>
+                                </div>
+                            </a>
+                            <a href="resource.html" class="sub-nav-item active">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Resources</span>
+                                    <span class="sub-nav-item-description">Access learning materials and documentation</span>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <a href="exercises.html" class="nav-item">Exercise</a>
+                <div class="nav-item-wrapper">
+                    <a href="qa.html" class="nav-item">Share</a>
+                    <nav class="sub-nav">
+                        <div class="sub-nav-wrapper">
+                            <a href="qa.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Q&A</span>
+                                    <span class="sub-nav-item-description">Ask questions and share knowledge</span>
+                                </div>
+                            </a>
+                            <a href="projects.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Mini Projects</span>
+                                    <span class="sub-nav-item-description">Share and explore algorithm projects</span>
+                                </div>
+                            </a>
+                            <a href="homework.html" class="sub-nav-item">
+                                <div class="sub-nav-item-content">
+                                    <span class="sub-nav-item-title">Homework</span>
+                                    <span class="sub-nav-item-description">Submit and discuss homework assignments</span>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="btn-signup">Sign up</button>
+            <button class="btn-login">Log in</button>
+        </div>
     </nav>
 
     <main>
-        <div class="content-wrapper">
-            <div class="exercises-content">
+        <div class="exercises-content">
+            <div class="exercises-header">
                 <h1>Practice Exercises</h1>
-                <div class="exercise-list">
-                    <div class="exercise-card">
-                        <h3>Basic Sorting</h3>
-                        <p>Sort an array of numbers using bubble sort</p>
-                        <button class="start-exercise">Start Exercise</button>
-                    </div>
-                    <div class="exercise-card">
-                        <h3>Advanced Sorting</h3>
-                        <p>Implement quick sort algorithm</p>
-                        <button class="start-exercise">Start Exercise</button>
-                    </div>
-                    <!-- Add more exercise cards -->
-                </div>
+                <p>Enhance your understanding of sorting algorithms through interactive quizzes and hands-on challenges</p>
             </div>
+
+            <div class="decorative-shape shape-1"></div>
+            <div class="decorative-shape shape-2"></div>
+
+            <section class="quiz-section">
+                <div class="quiz-section-header">
+                    <h2>Pre-class Quizzes</h2>
+                    <p>Complete these quizzes to test your knowledge before class</p>
+                </div>
+
+                <div class="quiz-cards">
+                    <div class="quiz-card">
+                        <div class="quiz-info">
+                            <h3>Basic Sorting Quiz</h3>
+                            <p>Complete before the second class</p>
+                            <div class="quiz-code">732177</div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="./pic/quiz1.png" alt="QR Code for Basic Sorting Quiz">
+                            </div>
+                        </div>
+                        <a href="https://quizizz.com/join?gc=732177" class="quiz-link" target="_blank">
+                            Start Quiz →
+                        </a>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-info">
+                            <h3>Advanced Sorting Quiz</h3>
+                            <p>Complete before the third class</p>
+                            <div class="quiz-code">269243</div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="./pic/quiz2.png" alt="QR Code for Advanced Sorting Quiz">
+                            </div>
+                        </div>
+                        <a href="https://quizizz.com/join?gc=269243" class="quiz-link" target="_blank">
+                            Start Quiz →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="additional-practice">
+                <h2>Additional Practice</h2>
+                <p>Challenge yourself with hands-on programming exercises</p>
+                <a href="https://www.geeksforgeeks.org/explore?page=1&category=Sorting&sortBy=submissions" 
+                   class="programming-link" 
+                   target="_blank">
+                    GeeksforGeeks Sorting Exercises →
+                </a>
+            </section>
+
+            <nav class="page-nav">
+                <a href="learn.html" class="nav-button">
+                    ← Back to Learning Path
+                </a>
+                <a href="visualization.html" class="nav-button">
+                    Try Visualization →
+                </a>
+            </nav>
         </div>
     </main>
 </body>

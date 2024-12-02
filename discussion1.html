@@ -3,83 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algorithm Visualization - Sorting Algorithms</title>
+    <title>Discussion Room 1 - Algorithm Learning Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .main-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: white;
-            height: 50px;
-        }
-
-        main {
-            margin-top: 0;
-            padding-top: 50px;
-            height: calc(100vh - 20px);
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            padding: 50px 20px 20px 20px;
-            max-width: 2400px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #1a1a1a;
-        }
-
-        iframe {
-            width: 100%;
-            min-height: calc(100vh - 70px);
-            height: 100%;
-            border: none;
-            display: block;
-            margin: 5px auto 0;
-            position: relative;
-            z-index: 2;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            max-width: 2400px;
-            background-color: #1a1a1a;
-        }
-
-        .visualization-container {
-            width: 100%;
-            max-width: 2400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Update icon styles for Discover dropdown items */
         .sub-nav-item[href="discover.html"]::before {
             background-image: url('pic/8.png');  /* Icon for Concepts */
         }
 
         .sub-nav-item[href="resource.html"]::before {
             background-image: url('pic/9.png');  /* Icon for Resources */
-        }
-
-        /* Add icon styles for Share dropdown items */
-        .sub-nav-item[href="qa.html"]::before {
-            background-image: url('pic/11.png');  /* Icon for Q&A */
-        }
-
-        .sub-nav-item[href="projects.html"]::before {
-            background-image: url('pic/12.png');  /* Icon for Mini Projects */
-        }
-
-        .sub-nav-item[href="homework.html"]::before {
-            background-image: url('pic/13.png');  /* Icon for Homework */
         }
     </style>
 </head>
@@ -105,7 +38,7 @@
                                     <span class="sub-nav-item-description">Follow a structured path to mastery</span>
                                 </div>
                             </a>
-                            <a href="visualization.html" class="sub-nav-item active">
+                            <a href="visualization.html" class="sub-nav-item">
                                 <div class="sub-nav-item-content">
                                     <span class="sub-nav-item-title">Visualization</span>
                                     <span class="sub-nav-item-description">See algorithms in action</span>
@@ -167,14 +100,27 @@
         </div>
     </nav>
 
-    <main>
-        <iframe 
-            src="https://sorting-algorithms-app-v2.vercel.app/" 
-            frameborder="0"
-            allowfullscreen
-            allow="fullscreen; autoplay; clipboard-write; web-share"
-            referrerpolicy="origin">
-        </iframe>
+    <main class="discussion-main">
+        <div class="discussion-header">
+            <h1>Discussion Room 1</h1>
+        </div>
+
+        <div class="discussion-links">
+            <a href="qa.html" class="discussion-btn">Q&A with Teachers</a>
+            <a href="discussion1.html" class="discussion-btn active">Discussion Room 1</a>
+            <a href="discussion2.html" class="discussion-btn">Discussion Room 2</a>
+            <a href="discussion3.html" class="discussion-btn">Discussion Room 3</a>
+        </div>
+
+        <div class="padlet-container">
+            <iframe src="https://padlet.com/1090440748/breakout-link/eo1R47MDKnRgqZDL-k2qlv3P5rVYjb5Rx"
+                    style="width:100%;height:700px"
+                    frameborder="0">
+            </iframe>
+        </div>
     </main>
+
+    <footer>
+    </footer>
 </body>
-</html>
+</html> 
